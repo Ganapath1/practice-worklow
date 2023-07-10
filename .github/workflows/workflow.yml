@@ -1,0 +1,19 @@
+name: first_workflow
+on: workflow_dispatch
+jobs:
+  all:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking out the code
+        uses: actions/checkout@v3
+      - name: installing dependencies
+        run:  npm ci
+      - name: running lint
+        run: npm run lint
+      - name: running test
+        run: npm run test
+      - name: runnig build
+        run: npm build
+      - name: deploying
+        run: echo "deployed..."
+        
